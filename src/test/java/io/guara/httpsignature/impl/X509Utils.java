@@ -30,7 +30,7 @@ public class X509Utils {
     try {
 
       Path path = Paths.get(ClassLoader.getSystemResource(fileName).toURI());
-      String privateKeyContent = new String(Files.readAllBytes(path)).replaceAll("\\n", "")
+      String privateKeyContent = new String(Files.readAllBytes(path)).replaceAll("[\\n\\r]", "")
           .replace("-----BEGIN RSA PRIVATE KEY-----", "").replace("-----END RSA PRIVATE KEY-----", "");
 
       privateKeyContent = privateKeyContent

@@ -1,14 +1,22 @@
 package io.guara.httpsignature.algorithm;
 
+/**
+ * @author Rauffer
+ *
+ *         This class implements a symmetric algorithm behavior.
+ */
 public class SymmetricAlgorithm extends Algorithm {
 
-  SymmetricAlgorithm(String name, String portableName) {
+  SymmetricAlgorithm(final String name, final String portableName) {
     super(name, portableName);
   }
 
-	@Override
-	public boolean isAsymmetric() {
-		return false;
-	}
+  /**
+   * Indicates that the algorithm is symmetric.
+   */
+  @Override
+  public boolean isAsymmetric() {
+    return false;
+  }
 
 }
