@@ -12,46 +12,74 @@ import io.guara.httpsignature.HttpSignatureException;
 import io.guara.httpsignature.StringSigner;
 import io.guara.httpsignature.algorithm.Algorithm;
 
+/**
+ * @author Rauffer
+ *
+ *         Implements an asymmetric string signer.
+ */
 public class AsymmetricStringSigner implements StringSigner {
-  
+
+  /**
+   * Internal instance reference.
+   */
   private static final AsymmetricStringSigner INSTANCE = new AsymmetricStringSigner();
-  
+
   AsymmetricStringSigner() {
     // hidden
   }
-  
+
+  /**
+   * Retrieves a singleton instance.
+   *
+   * @return the instance
+   */
   public static AsymmetricStringSigner getInstance() {
     return INSTANCE;
   }
 
-  public String sign(Algorithm algorithm, Key key, String strToSign) {
-  	
-  	if (key == null) {
-  		throw new HttpSignatureException("Key cannot be null.");
-  	}
-    
+  /**
+   * Signs the string using an asymmetric algorithm.
+   *
+   * @param algorithm the algorithm to be used to sign
+   * @param key       the key to be used to sign
+   * @param strToSign the string to be signed
+   * @return the signed string
+   */
+  public String sign(final Algorithm algorithm, final Key key, final String strToSign) {
+
+    if (key == null) {
+      throw new HttpSignatureException("Key cannot be null.");
+    }
+
     try {
-      
-      Signature sig = Signature.getInstance(algorithm.getName());
-      sig.initSign((PrivateKey)key);
-      sig.update(strToSign.getBytes(Charset.forName("UTF-8")));
-      
-      byte[] signature = sign(sig);
-      
-      return Base64Encoder.getInstance().encode(signature);
-      
-    } catch(NoSuchAlgorithmException e) {
+
+      Signature signature = Signature.getInstance(algorithm.getName());
+      signature.initSign((PrivateKey) key);
+      signature.update(strToSign.getBytes(Charset.forName("UTF-8")));
+
+      byte[] signed = sign(signature);
+
+      return Base64Encoder.getInstance().encode(signed);
+
+    } catch (NoSuchAlgorithmException e) {
       throw new HttpSignatureException("Invalid algorithm: " + algorithm, e);
     } catch (InvalidKeyException e) {
       throw new HttpSignatureException("Invalid key", e);
     } catch (SignatureException e) {
       throw new HttpSignatureException("Error when signing string", e);
     }
-    
+
   }
 
-  byte[] sign(Signature sig) throws SignatureException {
-    return sig.sign();
+  /**
+   * Implements signature invocation details.
+   *
+   * @param signature signature
+   * @return signed string
+   * @throws SignatureException case and error occurs during signature
+   */
+  byte[] sign(final Signature signature) throws SignatureException {
+    return signature.sign();
   }
-  
+
 }

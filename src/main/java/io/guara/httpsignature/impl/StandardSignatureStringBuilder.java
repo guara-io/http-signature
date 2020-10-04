@@ -7,14 +7,32 @@ import java.util.List;
 import io.guara.httpsignature.SignatureStringBuilder;
 import io.guara.httpsignature.message.Header;
 
+/**
+ * @author Rauffer
+ *
+ *         This class implements a default signature string builder.
+ */
 public class StandardSignatureStringBuilder implements SignatureStringBuilder {
 
+  /**
+   * The header declaration format.
+   */
   private static final String LINE_FORMAT = "%s: %s";
+
+  /**
+   * Empty value.
+   */
   private static final String EMPTY = "";
 
+  /**
+   * Builds a signature string.
+   *
+   * @param headers headers
+   * @return the string to be signed
+   */
   @Override
-  public String build(List<Header> headers) {
-    
+  public String build(final List<Header> headers) {
+
     if (headers == null || headers.isEmpty()) {
       return EMPTY;
     }
