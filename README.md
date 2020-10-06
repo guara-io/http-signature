@@ -81,4 +81,4 @@ We'd love to hear from you and/or check your pull request!
 
 **Guara http signature** is free and open source (MIT License). Use it as you wish.
 
-[Read License](https://github.com/anotheria/moskito/blob/master/LICENSE)
+[Read License](http://www.opensource.org/licenses/mit-license.html )
