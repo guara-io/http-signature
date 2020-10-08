@@ -3,7 +3,7 @@
 	<groupId>io.guara</groupId>
 	<artifactId>http-signature</artifactId>
 	<name>guara-http-signature</name>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<description>A java library for http signature creation and validation</description>
 	<url>https://github.com/guara-io/http-signature</url>
 
@@ -129,7 +129,7 @@
 		<connection>scm:git:git://github.com/guara-io/http-signature.git</connection>
 		<developerConnection>scm:git:https://github.com/guara-io/http-signature.git</developerConnection>
 		<url>http://github.com/guara-io/http-signature/tree/master</url>
-		<tag>http-signature-1.0.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<distributionManagement>
