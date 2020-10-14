@@ -11,7 +11,7 @@
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<pmd.plugin.version>3.13.0</pmd.plugin.version>
 		<findbugs.plugin.version>3.0.5</findbugs.plugin.version>
 		<checkstyle.plugin.version>3.1.1</checkstyle.plugin.version>
